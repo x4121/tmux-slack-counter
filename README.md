@@ -2,7 +2,7 @@
 Plugin that displays counters for mentions and messages in
 [slack](https://slack.com/) so you can keep TMUX in fullscreen.
 
-### Usage
+## Usage
 Generate a [token](https://api.slack.com/docs/oauth-test-tokens) for the slack
 API and store it in `$TMUX_PLUGIN_MANAGER_PATH/tmux-slack-counter/token`.
 
@@ -13,13 +13,14 @@ set -g status-right 'Slack: #{slack_dms}/#{slack_mentions}/#{slack_messages} | %
 ![screenshot](/screenshot.png)
 
 
-Variables:
+### Variables
 - `#{slack_dms}`: All direct messages for you (without group chats)
 - `#{slack_mentions}`: All mentions in group chats, groups and channels that
   are not archived
 - `#{slack_messages}`: All messages in group chats, groups and channels
   that are not archived or muted
 
+### Delay
 The default minimum delay between API requests is 10 seconds.
 This doesn't affect the `status-interval` of tmux, just how often the API can be queried.
 You can change this value by setting `@slack_update_delay` in your `.tmux.conf`.
@@ -27,6 +28,7 @@ You can change this value by setting `@slack_update_delay` in your `.tmux.conf`.
 set -g @slack_update_delay '5 minutes'
 ```
 
+## Installation
 ### Requirements
 - [jq](https://stedolan.github.io/jq/)
 
@@ -58,7 +60,7 @@ Reload TMUX environment with:
 $ tmux source-file ~/.tmux.conf
 ```
 
-### Errors
+## Errors
 `#{slack_dms}`, `#{slack_mentions}` and `#{slack_messages}` either
 return numbers or error codes. These are:
 
