@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-delay='@slack_update_delay'
-
 interpolate() {
     counter="$1"
 
@@ -9,7 +7,7 @@ interpolate() {
     status_value=$(tmux show-option -gqv "$status")
     dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
     replace="\#{$counter}"
-    cmd="#($dir/scripts/get_slack_counter.sh $counter $delay)"
+    cmd="#($dir/scripts/get_slack_counter.sh $counter)"
     tmux set-option -gq "$status" "${status_value/$replace/$cmd}"
 }
 

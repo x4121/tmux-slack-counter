@@ -21,7 +21,7 @@ set -g status-right 'Slack: #{slack_dms}/#{slack_mentions}/#{slack_messages} | %
   that are not archived or muted
 
 ### Delay
-The default minimum delay between API requests is 10 seconds.
+The default minimum delay between API requests is 1 minute.
 This doesn't affect the `status-interval` of tmux, just how often the API can be queried.
 You can change this value by setting `@slack_update_delay` in your `.tmux.conf`.
 ```tmux.conf
