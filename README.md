@@ -36,7 +36,7 @@ set -g @slack_update_delay '5 minutes'
 Add plugin to the list of TPM plugins in `.tmux.conf`:
 
 ```tmux.conf
-set -g @plugin 'x4121/tmux-slack-counter'
+set -g @plugin 'symbyte/tmux-slack-counter'
 ```
 
 Hit `prefix + I` to install it.
@@ -45,7 +45,7 @@ Hit `prefix + I` to install it.
 Clone the repo:
 
 ```bash
-$ git clone https://github.com/x4121/tmux-slack-counter.git ~/clone/path
+$ git clone https://github.com/symbyte/tmux-slack-counter.git ~/clone/path
 ```
 
 Add this line to the bottom of your `.tmux.conf`:
