@@ -1,17 +1,20 @@
 #!/usr/bin/env bash
 
+dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "$dir/shared.sh"
+
+delay_string="@slack_update_delay"
+default_delay="1 minute"
+
+age="$(get_tmux_option "$delay_string" "$default_delay")"
+
 counter="$1"
-age="$2"
-if [[ -z ${age// } ]]; then
-    age='10 seconds'
-fi
 
 api='https://slack.com/api/users.counts'
 mentions='. -map(select(.is_archived)) | .[].mention_count_display]'
 messages='. -map(select(.is_archived or .is_muted)) | .[].unread_count_display]'
 join='.groups + .channels'
 
-dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 tmp_out="$dir/../tmp"
 err_out="$dir/../err"
 token="$dir/../token"
