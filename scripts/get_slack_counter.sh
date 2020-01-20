@@ -47,9 +47,11 @@ main() {
                     echo "$js" > "$tmp_out"
                     ;;
                 not_authed)
-                    ;&
+                    err 'AUTH'
+                    ;;
                 invalid_auth)
-                    ;&
+                    err 'AUTH'
+                    ;;
                 account_inactive)
                     err 'AUTH'
                     ;;
